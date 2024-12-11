@@ -1,3 +1,4 @@
+
 interface IProps {
     todos: {
         id: number,
@@ -6,15 +7,6 @@ interface IProps {
     }[];
     isDeveloper: string
 }
-
-// type TProps = {
-//     todos: {
-//         id: number,
-//         title: string,
-//         isComplete: boolean
-//     }[];
-//     isDeveloper: string
-// }
 
 const TodoData = (props: IProps) => {
     const { todos } = props;
