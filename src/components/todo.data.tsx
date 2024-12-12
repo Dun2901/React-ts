@@ -5,18 +5,31 @@ interface IProps {
         title: string,
         isComplete: boolean
     }[];
-    isDeveloper: string
+    removeTodo: (id: number) => void
 }
 
 const TodoData = (props: IProps) => {
-    const { todos } = props;
+    const { todos, removeTodo } = props;
+
+    const handleDeleteTodo = (id: number) => {
+        removeTodo(id);
+    }
 
     return (
         <div>
             {todos.map(item => {
                 return (
                     <div key={item.id}>
-                        <div>{item.title}</div>
+                        <div style={{ padding: "10px 0" }}>
+                            {item.id} - {item.title}
+                            &nbsp;&nbsp;&nbsp;
+                            <button
+                                onClick={() => handleDeleteTodo(item.id)}
+                            >
+                                Delete
+                            </button>
+                        </div>
+
                     </div>
                 )
             })}
